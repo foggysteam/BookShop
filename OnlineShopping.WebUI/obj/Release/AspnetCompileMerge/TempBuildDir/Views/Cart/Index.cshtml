@@ -1,0 +1,73 @@
+﻿@model OnlineShopping.WebUI.Models.CartIndexViewModel
+
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+@{ 
+    ViewBag.Title = "Page Turner: Your Basket";
+}
+
+<h2>Your Basket</h2><br/>
+<table class="table" id="cartTable">
+    <thead>
+        <tr style="font-size:20px;">
+            <th class="col-lg-5 text-center">Book</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Quantity</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var line in Model.Cart.Lines)
+    {
+        <tr style="text-shadow:none;">
+
+            <td class="text-left">
+            
+            @if (line.product.ImageData != null)
+                {
+                <img class="img-thumbnail" style="max-width:20%;" src="@Url.Action("GetImage", "Product", new { line.product.productId }) " />
+            }
+            else
+            {
+                    <img class="img-thumbnail" style="max-width:20%;" src="/Content/book.jpg" />
+            }
+            
+             @line.product.name</td>
+            <td class="text-right">
+                @line.product.price.ToString("c")
+            </td>
+            <td class="text-right">@line.quantity</td>
+            <td class="text-right">
+                @((line.quantity * line.product.price).ToString("c"))
+            </td>
+            <td>
+                @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                {
+                    @Html.Hidden("productId", line.product.productId)
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    <button class="btn" type="submit"><i class="fa fa-trash-o" aria-hidden="true" style="color:#EC0229;"></i></button>
+                }
+            </td>
+
+        </tr>
+        <tr><td colspan="5"><hr /></td></tr>
+    }
+    </tbody>
+    <tfoot>
+        <tr style="text-shadow:none; font-weight:900;">
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right" style="color:#B12704;">
+                @Model.Cart.ComputeTotalValue().ToString("c")
+            </td>
+        </tr>
+
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class="btn btn-primary basketBtn" href="@Model.ReturnUrl">Continue shopping</a>
+    @Html.ActionLink("Proceed to Checkout", "Checkout", null, new {  @class = "btn btn-primary basketBtn" })
+    <hr />
+</div>

@@ -1,0 +1,33 @@
+﻿@model OnlineShopping.WebUI.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+
+    <div class="container" style="text-shadow:none;">
+        @if (Model.currentCategory == null)
+            {
+            <h4>All Categories</h4>
+        }
+        else
+        {
+            <h4>@Model.currentCategory</h4>
+        }
+    </div>
+    <div style="margin-top:20px; margin-bottom:20px;">
+        @foreach (var p in Model.products)
+        {
+            @Html.Partial("ProductSummery", p)
+        }
+    </div>
+
+    <div class="btn-group col-md-12" style="padding: 5px 15px 10px 0px;">
+        <hr />
+        
+
+        <div class="pull-right">
+            @Html.PageLinks(Model.pagingInfo, x => Url.Action("List", new { page = x, category = Model.currentCategory }))
+        </div>
+    </div>
+
+

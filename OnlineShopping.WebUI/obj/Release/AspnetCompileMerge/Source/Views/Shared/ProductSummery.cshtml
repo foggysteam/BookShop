@@ -1,0 +1,77 @@
+﻿@model OnlineShopping.Domain.Entities.Product
+
+@*<div class="well">
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img class="img-thumbnail" width="100" height="100" src="@Url.Action("GetImage", "Product", new { Model.productId }) "/>
+        </div>
+    }
+    <h3>
+        <strong>@Model.name</strong>
+        <span class="pull-right label label-primary">@Model.price.ToString("c")</span>
+    </h3>
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        <div class="pull-right">
+            @Html.HiddenFor(x => x.productId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" class="btn btn-success" value="Add to cart" />
+        </div>
+    }
+    <span class="lead">@Model.description</span>
+</div>*@
+
+    <div class="col-md-3 top-product-grids tp5">
+        @*<a href="single.html">*@
+        <div class="tp5a">
+            <div class="product-img">
+                @if (Model.ImageData != null)
+                {
+
+                    <img style="min-height:400px; max-height:400px;" @*class="img-thumbnail" width="100" height="100"*@ src="@Url.Action("GetImage", "Product", new { Model.productId }) " />
+
+                }
+                else
+                {
+                    <img style="min-height:400px; max-height:400px;" src ="/Content/book.jpg" />
+                }
+
+
+
+                @*<img src="images/ip2.jpg" alt="" />*@
+                <div class="p-mask">
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        <div @*class="pull-right"*@>
+                            @Html.HiddenFor(x => x.productId)
+                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            @*<input type="submit" class="btn btn-success" value="Add to cart" />*@
+                            <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                        </div>
+                    }
+                    @*<form action="#" method="post">
+                        <input type="hidden" name="cmd" value="_cart" />
+                        <input type="hidden" name="add" value="1" />
+                        <input type="hidden" name="w3ls1_item" value="Inner wear" />
+                        <input type="hidden" name="amount" value="50.00" />
+                        <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+                    </form>*@
+                </div>
+            </div>
+            @*</a>*@
+            @*<i class="fa fa-star yellow-star" aria-hidden="true"></i>
+            <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+            <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+            <i class="fa fa-star gray-star" aria-hidden="true"></i>*@
+            @*<h4>Inner wear</h4>*@
+            <div style="height:45px;">
+                <h4>@Model.name</h4>
+            </div>
+            <div class="ap">
+                <span class="lead">@Model.description</span>
+                <h5>@Model.price.ToString("c")</h5>
+            </div>
+        </div>
+    </div>

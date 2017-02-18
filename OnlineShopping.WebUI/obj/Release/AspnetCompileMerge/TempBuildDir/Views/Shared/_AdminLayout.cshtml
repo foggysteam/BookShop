@@ -1,0 +1,59 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <title>@ViewBag.Title - Page Turner Bookshop Admin</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://use.fontawesome.com/2edc392ba4.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success alertMes">@TempData["message"]</div>
+        }
+        @{
+            var userName = HttpContext.Current.User.Identity.Name;
+            if (userName != "")
+            {
+                <h3>@Html.ActionLink("PAGE TURNER BOOKSHOP", "List", "Product", null, new { target = "_blank", style = "text-decoration: none;" }) <span class="pull-right username">Welcome @userName.</span></h3>
+                <div style="margin-bottom: 50px;">
+                    <span class="pull-right">@Html.ActionLink("Users", "UserIndex", null, new { @class = "btn btn-default wBtn" }) | <a href="@Url.Action("Logout", "Account")" class="btn btn-default wBtn">Logout</a></span>
+                </div>
+            }
+        }
+        <div class="jumbotron" style="padding-top: 10px;">
+            @RenderBody()
+            <hr />
+            
+        </div>
+        <footer class="footer">
+
+
+            <p style="color:#000; font-size:15px; font-weight:bold;">&copy; @DateTime.Now.Year - Page Turner Bookshop - <a href="http://www.ahmadalasadi.co.uk" target="_blank" style="color:#000">www.ahmadalasadi.co.uk</a></p>
+
+
+        </footer>
+    </div>
+        
+        
+    <link href='https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script>
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+    </script>
+</body>
+</html>

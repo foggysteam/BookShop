@@ -1,0 +1,169 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*.btn-default {
+    display: inline;
+}*/
+.resp-tabs-list a {
+    display: inline;
+    margin: 5px 5px;
+}
+
+
+
+.resp-tabs-list {
+    margin-top: 20px;
+}
+.resp-tab-item{
+    border: none;
+    text-shadow:none;
+}
+
+.top-product-grids, .women-grids {
+    max-height: 550px;
+    min-height: 550px;
+}
+
+.resp-tab-item:hover{
+    border-radius:5px;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background-color: transparent;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.dropdown-menu > li > a {
+    display: inline-block;
+}
+
+.dropdown {
+    /*margin-bottom: 70px;*/
+    /*left: 30px;
+    top: 5px;*/
+}
+
+.navbar{
+    /*background-color:rgba(11, 35, 40, 0.97);*/
+    padding-bottom:5px;
+    text-shadow:1px 1px 1px #000;
+    color:#fff;
+    letter-spacing: 1px;
+    top: 0;
+    /*z-index: 100;
+  position: fixed;*/
+    width: 100%;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.btn-default {
+    background-image:none;
+}
+
+.panel{
+    margin-top: 100px;
+    background-color: transparent;
+}
+body {
+    /*background-color: rgba(73,73,73,0.8);*/
+    /*background-image: url('/Content/books.jpg');*/
+    /*text-shadow:0.5px 0.5px 0.5px #0b2328;*/
+}
+.btn-success{
+    background-color:rgba(13, 60, 111, 0.97);
+    background-image:none;
+    color:#fff !important;
+    border-radius: 5px;
+}
+.btn-success:hover{
+    background-color:rgba(11, 35, 40, 0.7) !important;
+    background-image:none !important;
+    color:#fff !important;
+    border-radius: 5px;
+}
+.btn-default:hover {
+    background-color: none;
+}
+
+.tp5a {
+    background-color: rgba(249, 249, 249, 1);
+    border-radius:5px;
+    padding:5px;
+    height:539px;
+}
+.ap{
+    text-shadow:none;
+}
+.w3ls-cart {
+    text-shadow:0.5px 0.5px 0.5px #0b2328;
+    background: #0D3C6F;
+    background: -webkit-linear-gradient(to left, #517fa4, #243949) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #517fa4, #243949) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.miniNav {
+    background: #0D3C6F;
+    background: -webkit-linear-gradient(to left, #517fa4, #243949); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #517fa4, #243949); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 5px 0px;
+    margin: 20px 0px;
+}
+.basketBtn{
+    background: #0D3C6F;
+    background: -webkit-linear-gradient(to left, #517fa4, #243949); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #517fa4, #243949); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.wBtn {
+    background: #8e9eab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e9eab, #eef2f3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e9eab, #eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 0px solid transparent;
+    text-shadow:none;
+}
+.dPic{
+    border-radius:5px;
+    margin-top:20px;
+}
+.adLog{
+    padding: 50px;
+}
+
+.mainLogin{
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-shadow:none;
+	margin: auto;
+}
+
+.username{
+    text-transform:capitalize;
+}
+.alertMes{
+    background: #8e9eab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e9eab, #eef2f3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e9eab, #eef2f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: 0px solid transparent;
+    text-shadow:none;
+    color:#000;
+}

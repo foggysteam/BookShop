@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Page Turner Bookshop</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://use.fontawesome.com/2edc392ba4.js"></script>
+</head>
+<body>
+    @*<div class="navbar navbar-inverse" role="navigation">*@
+    <div class="navbar" role="navigation">
+        @*<div class="container" style="text-align:center;"><img src="~/Content/Logo1.png" style="width:30%;" /></div>*@
+        <div class="container"><br /><h1><a href="@Url.Action("List", "Product")"><span style="color:#0D3C6F;">PAGE TURNER BOOKSHOP</span></a> <span style="text-shadow:none;"><a class="btn dropdown-toggle navbar-right" href="@Url.Action("Index", "Admin")" target="_blank"><b>Admin </b><i class="fa fa-sign-in" aria-hidden="true"></i></a></span></h1></div>
+        @*<span>@Html.ActionLink("Admin Login", "Index", "Admin", null, new { @class = "btn btn-default dropdown-toggle navbar-right", target = "_blank" })</span>*@
+        <div class="miniNav">
+            <div class="container">
+                <div class="row">
+                    <div class="dropdown col-md-7">
+                        <button class="btn wBtn dropdown-toggle" type="button" data-toggle="dropdown" style="color: #000; ">
+                            Select Category
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>@Html.Action("Menu", "Nav")</li>
+                        </ul>
+                        @*@if (Model.currentCategory == null)
+                        {
+                            <span>All Categories</span>
+                        } else
+                        {
+                            <span>@Model.currentCategory</span>
+                        }*@
+                    </div>
+                    @*<div class="col-md-1">@Model.currentCategory</div>*@
+                    <div class="col-md-5">
+                        @Html.Action("Summary", "Cart")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row panel">*@
+        @*<div id="categories" class="col-lg-3">
+                @Html.Action("Menu", "Nav")
+            </div>*@
+
+
+        @*<div class="sap_tabs">
+            <div id="horizontalTab">*@
+                @*<ul class="resp-tabs-list">
+                        @Html.Action("Menu", "Nav")
+                    </ul>*@
+    
+        <div class="col-md-offset-1 col-lg-10" >
+            @RenderBody()
+            <footer>
+                    <div class="pull-left">
+                        <hr />
+                        <p style="color:#000; font-size:15px; font-weight:bold;">&copy; @DateTime.Now.Year - Page Turner Bookshop - <a href="http://www.ahmadalasadi.co.uk" target="_blank" style="color:#000">www.ahmadalasadi.co.uk</a></p>
+                        <hr />
+                    </div>
+            </footer>
+        </div>
+    
+            @*</div>
+        </div>*@
+    @*</div>*@
+    
+    
+</body>
+</html>

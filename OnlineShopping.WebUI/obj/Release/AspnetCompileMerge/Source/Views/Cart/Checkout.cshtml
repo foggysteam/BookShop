@@ -1,0 +1,84 @@
+﻿@model OnlineShopping.Domain.Entities.ShippingDetails
+
+@{ 
+    ViewBag.Title = "Page Turner Bookshop: Checkout";
+}
+<div class="container" style="text-shadow:none;">
+    <h2>Check out now</h2><p class="text-center">Please enter your details, and we'll ship your goods right away!</p><hr />
+    <div class="col-md-4">
+        <img class="dPic" src="~/Content/delivery.jpg" />
+    </div>
+    <div class="col-md-8">
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <h3>Ship to</h3><hr />
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Full Name:</label>
+                </div>
+                <div class="col-md-5">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+            </div>
+            <br />
+            <br />
+            <hr />
+            <h3>Address</h3><hr />
+            foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "Name" && property.PropertyName != "GiftWrap")
+                {
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>@(property.DisplayName ?? property.PropertyName) :</label>
+                            </div>
+                            <div class="col-md-5">
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6"></div>
+                        </div>
+                    </div>
+                }
+            }
+            
+            <hr />
+            @*<div class="form-group">
+                    <label>Line 1:</label>
+                    @Html.TextBoxFor(x => x.Line1, new { @class = "form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Line 2:</label>
+                    @Html.TextBoxFor(x => x.Line2, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Line 3:</label>
+                    @Html.TextBoxFor(x => x.Line3, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>City:</label>
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Zip:</label>
+                    @Html.TextBoxFor(x => x.Zip, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Country:</label>
+                    @Html.TextBoxFor(x => x.Country, new { @class = "form-control" })
+                </div>*@
+            
+            <div class="checkbox col-md-offset-4">
+                <label>
+                    @Html.EditorFor(x => x.GiftWrap)
+                    Gift wrap these items
+                </label>
+            </div><hr />
+            <div class="text-center">
+                <input class="btn btn-primary basketBtn" type="submit" value="Complete order" />
+            </div><hr />
+        }
+    </div>
+    </div>

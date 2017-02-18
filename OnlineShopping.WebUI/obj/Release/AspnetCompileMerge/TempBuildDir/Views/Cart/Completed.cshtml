@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Page Turner Bookshop: Order Submitted";
+}
+
+<h2>Thanks!</h2>
+<hr />
+<div style="text-shadow:none;">
+    <p class="text-center">
+        Thank you for placing your order. We'll ship your books as soon as possible.
+    </p><br />
+    <p class="text-center">
+        All orders are free of charge every @DateTime.Now.DayOfWeek.
+    </p>
+
+    <hr />
+    <h4><a href="@Url.Action("List", "Product")">Home</a></h4>
+</div>

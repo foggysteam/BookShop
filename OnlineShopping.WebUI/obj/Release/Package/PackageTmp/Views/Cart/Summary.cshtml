@@ -1,0 +1,42 @@
+﻿@model OnlineShopping.Domain.Entities.Cart
+
+<div class="navbar-right">
+    <div class="dropdown">
+        <button class="btn wBtn dropdown-toggle" type="button" data-toggle="dropdown" style="color: #000; background-color: #fff;">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="padding:20px; color:#000; text-shadow:none;">
+            @if ((@Model.Lines.Sum(x => x.quantity) == 0))
+            {
+                <li><b>Your Basket is empty.</b></li>
+            }
+            else
+            {
+                <li><b>You Have:</b></li>
+                <li>@Model.Lines.Sum(x => x.quantity) item(s)<hr />Total Price is: @Model.ComputeTotalValue().ToString("c")</li>
+                @Html.ActionLink("View Basket", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-primary basketBtn dropdown-toggle" })
+            }
+
+                
+        </ul>
+        @*@if (Model.currentCategory == null)
+            {
+                <span>All Categories</span>
+            } else
+            {
+                <span>@Model.currentCategory</span>
+            }*@
+    </div>
+
+
+
+    
+    @*@Html.ActionLink("Admin Login", "Index", "Admin",null, new { @class = "btn btn-default dropdown-toggle", target = "_blank" })*@
+    
+</div>
+@*<div class="navbar-text navbar-right">
+    <b>Your cart has:</b>
+    @Model.Lines.Sum(x => x.quantity) item(s),
+    @Model.ComputeTotalValue().ToString("c")
+</div>*@
